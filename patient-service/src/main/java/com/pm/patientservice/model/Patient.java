@@ -1,17 +1,17 @@
 package com.pm.patientservice.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
-
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.UUID;
-
 
 @Entity
 public class Patient {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
@@ -31,7 +31,7 @@ public class Patient {
     private LocalDate dateOfBirth;
 
     @NotNull
-    private LocalTime registeredDate;
+    private LocalDate registeredDate;
 
     public UUID getId() {
         return id;
@@ -73,14 +73,12 @@ public class Patient {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public @NotNull LocalTime getRegisteredDate() {
+    public @NotNull LocalDate getRegisteredDate() {
         return registeredDate;
     }
 
-    public void setRegisteredDate(@NotNull LocalTime registeredDate) {
+    public void setRegisteredDate(@NotNull LocalDate registeredDate) {
         this.registeredDate = registeredDate;
     }
-
-
 
 }
